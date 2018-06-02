@@ -3,8 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "build-tailwind": "./node_modules/.bin/tailwind build ./src/tailwind.css -c ./tailwind.js -o ./src/styles.css",
+    "prestart": "npm run build-tailwind",
+    "start": "ng serve & node chokidar.js",
+    "build": "npm run prestart && ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -20,8 +22,11 @@
     "@angular/platform-browser": "^6.0.0",
     "@angular/platform-browser-dynamic": "^6.0.0",
     "@angular/router": "^6.0.0",
+    "chokidar": "^2.0.3",
     "core-js": "^2.5.4",
     "rxjs": "^6.0.0",
+    "tailwindcss": "^0.5.3",
+    "uuid": "^3.2.1",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

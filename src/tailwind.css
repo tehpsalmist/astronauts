@@ -1,0 +1,11 @@
+@tailwind preflight;
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 25px;
+  margin: 50px 25px;
+  @apply .bg-grey
+}
+
+@tailwind utilities;
