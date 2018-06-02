@@ -1,20 +1,22 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="bg-indigo h-screen w-full">
+<div class="h-screen w-full">
   <div class="grid">
     <div *ngFor="let column of columns; let i = index" class="bg-transparent">
-      <div [ngClass]="column.bgColor">
+      <div [ngClass]="column.bgColor" class="h-30 text-center">
         <h2>{{column.name}}</h2>
       </div>
-      <div *ngFor="let card of column.cards" class="bg-white m-3">
-        <a *ngIf="i > 0" (click)="moveCardLeft(column, card)">
-          < </a>
-            <p>{{card.taskDesc}}</p>
-            <a *ngIf="i < columns.length - 1" (click)="moveCardRight(column, card)">
-              >
-            </a>
+      <div *ngFor="let card of column.cards" class="bg-white m-3 flex align-items-center">
+        <a *ngIf="i > 0" (click)="moveCardLeft(column, card)" class="w-auto my-auto p-2">
+          {{'
+          < '}}
+        </a>
+        <p class="flex-grow my-3 ">{{card.taskDesc}}</p>
+        <a *ngIf="i < columns.length - 1 " (click)="moveCardRight(column, card) " class="w-auto my-auto p-2 ">
+          >
+        </a>
       </div>
-      <button type="button" (click)="addCard(column.name)">
-        + Add a Card
+      <button type="button " (click)="addCard(column.name) ">
+        + Add a Task
       </button>
     </div>
   </div>
